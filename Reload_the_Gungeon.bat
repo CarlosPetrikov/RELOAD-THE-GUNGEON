@@ -63,7 +63,7 @@ if exist "bkp" (
 		echo ---------------------------------------------
 		echo      1.          SAVE BACKUP
 		echo      2.       RESTORE THE BACKUP
-		echo      3.  LOOP MODE (view the README.txt)
+		echo      3.  LOOP MODE (view the README.md)
 		echo ---------------------------------------------
 		echo ==============PRESS 'Q' TO QUIT==============
 		echo ---------------------------------------------
