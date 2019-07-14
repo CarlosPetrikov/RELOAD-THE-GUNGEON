@@ -6,7 +6,7 @@ This script is intended to allow you to **backup and restore the save data** fro
 
 ### INSTALLATION
 
-- Download the &quot; [**Reload\_the\_Gungeon.bat**](Reload_the_Gungeon.bat)&quot; script through the &quot; **Clone or Download**&quot; button and run it like any other program (easy, huh?).
+- Download the &quot; [**Reload\_the\_Gungeon.bat**](Reload_the_Gungeon.bat)&quot; script through the &quot; **Clone or Download**&quot; button or by the [**project releases tab**](https://github.com/CarlosPetrikov/RELOAD-THE-GUNGEON/releases) and run it like any other program (easy, huh?).
 
 - If you want to use the &quot; **Loop Mode**&quot; (automatic backup and restore mode): Open the batch file with your favorite text editor (it can be the Windows notepad). Right at the beginning, you will find the following line of code (put the location of your game&#39;s executable there):
 <p align="center">
