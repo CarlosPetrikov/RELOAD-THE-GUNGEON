@@ -40,6 +40,10 @@ This script has been tested on the following software specifications:
 
 - **0.0.1** - First release!
 
+### COMING UPDATES
+
+- Improve the "Loop Mode" to use less CPU resources
+
 ### AUTHOR
 
 **Carlos Petrikov** - Initial work
