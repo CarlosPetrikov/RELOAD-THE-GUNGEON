@@ -1,4 +1,4 @@
-@echo off
+@ECHO OFF
 
 @REM !!! PUT HERE THE LOCATION OF THE GAME EXECUTABLE !!!
 @REM e.g:    "C:\Program Files\Epic Games\EnterTheGungeon\EtG.exe"
@@ -160,6 +160,8 @@ if exist "bkp" (
 		copy bkp\Active%slot%.game /y > nul
 		@REM GO TO A MODIFIED VERSION OF "REG1", WHAT WILL START THE GAME AND THE LOOP
 		goto reg2
+		@REM NOTIFY (ONCE ONLY TIME!) USER THAT SCRIPT WILL RUN IN LOOP MODE
+		echo RUNNING IN THE LOOP MODE
 
 		:loop
 		
@@ -173,7 +175,8 @@ if exist "bkp" (
 			@REM CHECK IN THE LOG FILE FOR THE OCCURRENCE WHEN LIFE TURNS TO ZERO, TO DECIDE IF THE GAME WILL RESTART
 			type output_log.txt | find /c "health to: 0|" > nul
 			if %errorlevel%==1 (
-				echo RUNNING IN THE LOOP MODE
+				@REM WAIT 1 SECOND TO RESTART THE LOOP (PREVENTING THE CODE TO USE HIGH CPU RESOURCES)
+				timeout 1 > nul
 				goto loop
 			) else (
 				taskkill /f /im EtG.exe
@@ -191,7 +194,13 @@ if exist "bkp" (
 					copy Active%slot%.game bkp /y > nul
 					goto loop
 				) else (
-					goto loop
+					@REM IF THE GAME IS NO MORE RUNNING, SCRIPT EXECUTION WILL BE ENDED
+					tasklist /svc | find /c "EtG.exe"
+					if %errorlevel%==1 (
+					goto loop 
+					) else (
+						taskkill /f /im cmd.exe
+					)
 				)
 					
 			:reg2
